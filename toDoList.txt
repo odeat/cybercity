@@ -1,0 +1,30 @@
+--- Cybercity project to do list ---
+
+1. Wat houd het project in?
+
+    Het project visualiseert allemaal verschillende rectangles
+    in verschillende vormaten en kleuren die op willekeurige 
+    snelheid door een scherm heen bewegen. Dit doen ze zowel 
+    horizontaal als verticaal, of juist allebei!
+
+2. Welke klassen zijn er nodig? (SNAKE KLASSE)
+
+    - snake klasse
+
+    - X-positie van de kop van de snake
+    - Y-positie van de kop van de snake
+
+    - snelheid van de rect: hoe snel beweegt hij voort?
+
+    - array van blokjes
+
+    - color voor de blokjes (in de draw()-methode)
+
+3. RECTANGLE KLASSE 
+
+    - de positie van zichzelf (Xpos, Ypos)
+
+    - 
+
+    
+
