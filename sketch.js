@@ -45,6 +45,24 @@ function draw() {
          snake.rectangles.push(new Rechthoek(snake.x, snake.y))
       }
 
+      if(counter % 100 == 0){
+         snake.vx = 0;
+         snake.vy = 0;
+
+         var vel = random(2, 5)
+         
+         if(random(0, 1) > 0.5){
+            vel *= -1
+         }
+
+         if(random(0, 1) > 0.5){
+            snake.vx = vel;
+            
+         } else {
+            snake.vy = vel
+         }
+      }
+
       for(let rectangle of snake.rectangles){ 
          rectangle.age++
 
@@ -54,6 +72,7 @@ function draw() {
       }
       snake.rectangles = snake.rectangles.filter((r)=> r.deleted == false)
    }
+   
 
    // ---------- RENDER ----------
    for (var snake of snakes) {
