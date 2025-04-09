@@ -10,6 +10,21 @@ class Snake {
       this.color = color;
       this.rectangles = [];
    }
+   randomizeSpeed(){
+
+      this.vx = 0;
+      this.vy = 0;
+
+      var vel = random(2, 5)  
+      if(random(0, 1) > 0.5){
+         vel *= -1
+      }
+      if(random(0, 1) > 0.5){
+         this.vx = vel;
+      } else {
+         this.vy = vel
+      }
+   }
 }
 
 class Rechthoek {
@@ -22,21 +37,35 @@ class Rechthoek {
 }
 
 let snakes = [];
-
+let colors = ["#B5CEA8", "#9CDCFE", "#FFD70A", "#C586C0", "#56818F", "#4EC9B0", "#6A8A36"]
 
 function setup() {
    createCanvas(1000, 1000);
    // x, y, height, width, vx, vy, lifetime, color
-   snakes.push(new Snake(470, 470, 30, 30, 4, 0, 180, "#CE9178"))
+   for(var i = 0; i < 20; i++){
+      generateSnake()
+   }
+}
+
+function generateSnake(){
+   var newSnake = new Snake(random(0, 1000), random(0, 1000), 
+      random(1, 30), random(15, 40), 4, 0, 180, random(colors))
+      newSnake.randomizeSpeed()
+      snakes.push(newSnake)
 }
 
 var counter = 0;
 
 function draw() {
-   background(220);
+   background(0);
 
    // ---------- UPDATE ----------
    counter++
+
+   if(counter % 100 == 0){
+      generateSnake()
+   }
+
    for (var snake of snakes) {
       snake.x += snake.vx;
       snake.y += snake.vy;
@@ -46,21 +75,7 @@ function draw() {
       }
 
       if(counter % 100 == 0){
-         snake.vx = 0;
-         snake.vy = 0;
-
-         var vel = random(2, 5)
-         
-         if(random(0, 1) > 0.5){
-            vel *= -1
-         }
-
-         if(random(0, 1) > 0.5){
-            snake.vx = vel;
-            
-         } else {
-            snake.vy = vel
-         }
+         snake.randomizeSpeed()
       }
 
       for(let rectangle of snake.rectangles){ 
