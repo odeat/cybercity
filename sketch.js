@@ -40,7 +40,7 @@ let snakes = [];
 let colors = ["#B5CEA8", "#9CDCFE", "#FFD70A", "#C586C0", "#56818F", "#4EC9B0", "#6A8A36"]
 
 function setup() {
-   createCanvas(1000, 1000);
+   createCanvas(windowWidth, windowHeight);
    // x, y, height, width, vx, vy, lifetime, color
    for(var i = 0; i < 20; i++){
       generateSnake()
